@@ -16,7 +16,7 @@ class jogadores extends StatelessWidget {
       decoration: BoxDecoration(color: Colors.white24),
       child: Padding( padding: EdgeInsets.all(10),
       child: Text(jogador, style: TextStyle(fontSize: 14)),    
-      Image.network('linkImagem', width: 20),
+      Image.network('linkImagem', width: 60),
       )
       )
         ]
