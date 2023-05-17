@@ -1,7 +1,7 @@
-import 'package:exercicio_rotas/apresentacao.dart';
-import 'package:exercicio_rotas/contador.dart';
-import 'package:exercicio_rotas/sobremim.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/contador.dart';
+import 'package:portfolio/sobrenos.dart';
+import 'package:portfolio/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,36 +10,27 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  //Atributo
-  int _indice = 0;
-
-  List<Widget> _telas = [
-    Apresentacao(),
-    Contador(),
-    SobreMim(),
-  ];
-
-  void _itemClicado(int index) {
-    setState(() {
-      _indice = index;
-    });
-  }
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
+      theme: ThemeData( 
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const MyHomePage(),
+      routes: {
+        '/':(context) => Home(),
+        '/sobrenos':(context) => Sobrenos(),
+        '/contador':(context) => Contador(),
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+/*class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -51,14 +42,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
+
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
+        
         title: Text(widget.title),
       ),
       body: Center(
@@ -83,3 +77,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
