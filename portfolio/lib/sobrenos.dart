@@ -1,4 +1,3 @@
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +8,7 @@ class Sobrenos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sobre nos"),
+        title: Text("Sobre nós"),
         backgroundColor: Color.fromARGB(255, 90, 29, 139),
          actions: [
           IconButton(

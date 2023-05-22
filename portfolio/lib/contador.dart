@@ -1,6 +1,6 @@
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/myCont.dart';
 
 class Contador extends StatelessWidget {
   const Contador({super.key});
@@ -32,12 +32,7 @@ class Contador extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-          child: Column(
-        children: [
-          Text("Contador"),
-        ],
-      )),
+      body: MyCont(),
     );
   }
 }
