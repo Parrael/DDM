@@ -48,11 +48,27 @@ class Home extends StatelessWidget {
 
             jogadores("Rildo", 'https://pbs.twimg.com/media/E1mJXdLXsAIMVP5?format=jpg&name=small'),
             jogadores("Bodinho", 'https://esportenewsmundo.com.br/wp-content/uploads/2020/07/Bodinho-2.jpg'),
-            jogadores("Vavá", 'https://upload.wikimedia.org/wikipedia/pt/1/1d/Vav%C3%A1.jpeg'),
+            //jogadores("Vavá", 'https://upload.wikimedia.org/wikipedia/pt/1/1d/Vav%C3%A1.jpeg'),
             jogadores("Mauro Shampoo", 'https://e.imguol.com/esporte/futebol/2011/05/24/mauro-shampoo-ex-jogador-tido-como-o-maior-da-historia-do-ibis-1306248246145_300x230.jpg'),
           ],
         ),
-      )
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Color.fromARGB(255, 90, 29, 139)),
+            label:"Home"
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.plus_one, color: Color.fromARGB(255, 90, 29, 139)),
+            label:"Contador"
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info, color: Color.fromARGB(255, 90, 29, 139)),
+            label:"Sobre nós"
+          )
+        ],
+      ),
       /*bottomNavigationBar: BottomNavigationBar(
         onTap: ,
         items: [
