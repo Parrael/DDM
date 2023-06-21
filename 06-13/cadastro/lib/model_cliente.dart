@@ -1,17 +1,23 @@
+import 'package:cadastro/cliente_repository.dart';
 import 'package:flutter/material.dart';
 
 class Cliente extends StatefulWidget {
-  const Cliente({super.key});
+  const Cliente(String cpf, String email, int Idade, String nome, {super.key});
 
   @override
   State<Cliente> createState() => _ClienteState();
 }
 
 class _ClienteState extends State<Cliente> {
+  String nome = "";
+  String cpf = "";
+  String email = "";
+  int idade = 0;
   TextEditingController controllerNome = TextEditingController();
   TextEditingController controllerCpf = TextEditingController();
   TextEditingController controllerEmail = TextEditingController();
   TextEditingController controllerIdade = TextEditingController();
+  ClienteRepository listaCl = ClienteRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +95,22 @@ class _ClienteState extends State<Cliente> {
                 labelText: 'Idade',
               ),
             ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              nome = controllerNome.text;
+              idade = int.parse(controllerIdade.text);
+              email = controllerEmail.text;
+              cpf = controllerCpf.text;
+              Cliente cl = Cliente(cpf, email, idade, nome);
+              listaCl.adicionar(cl);
+              listaCl.imprimir();
+              controllerNome.clear();
+              controllerCpf.clear();
+              controllerEmail.clear();
+              controllerIdade.clear();
+            },
+            child: Text("Cadastrar"),
           )
         ],
       )),
