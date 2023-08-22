@@ -1,5 +1,8 @@
+import 'package:exerc_login/usuario.dart';
+import 'package:exerc_login/usuario_repository.dart';
 import 'package:flutter/material.dart';
-import 'usuario_repository.dart';
+
+
 
 class MyLogin extends StatefulWidget {
   const MyLogin({super.key});
@@ -14,7 +17,8 @@ class _MyLoginState extends State<MyLogin> {
   TextEditingController campoUser = TextEditingController();
   TextEditingController campoSenha = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  UsuarioRepository U1 = UsuarioRepository();
+  UsuarioRepository u1 = UsuarioRepository();
+  Usuario u2 = Usuario("user", "senha");
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +52,7 @@ class _MyLoginState extends State<MyLogin> {
                       return null;
                     }),
                 TextFormField(
-                    controller: campoUser,
+                    controller: campoSenha,
                     style: TextStyle(fontSize: 15),
                     decoration: InputDecoration(
                       labelText: "Senha:",
@@ -68,20 +72,23 @@ class _MyLoginState extends State<MyLogin> {
                     onPressed: () {
                       user = campoUser.text;
                       senha = campoSenha.text;
-                      if (formKey.currentState!.validate()) {
+                      Usuario us = Usuario(user, senha);
+                      u1.adicionar(us);
                         setState(() {});
-                      }
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Cadastro bem sucedido!")));
                     },
                     child: Text("Cadastrar")),
                 ElevatedButton(
                     onPressed: () {
                       user = campoUser.text;
                       senha = campoSenha.text;
-                      setState(() {});
-                      if (U1.logar(user, senha)) {
+                      Usuario us = Usuario(user, senha);                      
+                      if (u1.logar(us)) {
                         ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text("Login bem sucedido!")));
                       }
+                      setState(() {});
                     },
                     child: Text("Logar")),
               ],

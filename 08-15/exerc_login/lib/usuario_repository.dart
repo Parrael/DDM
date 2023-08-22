@@ -3,8 +3,8 @@ import 'usuario.dart';
 class UsuarioRepository{
   List<Usuario> _listaUsurios = [];
   //construtor
-  UsuarioRepository(){
-    _listaUsurios = [];
+
+
 
     void adicionar(Usuario u1){
       _listaUsurios.add(u1);
@@ -13,13 +13,12 @@ class UsuarioRepository{
     
     
     
-    bool logar(String user, String senha){
-      for(var i=0; i<_listaUsurios.length; i++){
-        if(user==({_listaUsurios[i].user}) && senha==({_listaUsurios[i].senha})){
+    bool logar(u1){
+      for(var u in _listaUsurios)
+        if(u1.user==u.user && u1.senha==u.senha){
           return true;
         }
-      }
       return false;
     }
-  }
+  
 }
