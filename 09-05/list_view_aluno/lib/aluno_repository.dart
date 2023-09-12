@@ -22,4 +22,7 @@ class AlunoRepository{
       print("RA: ${_listaAlunos[i].ra}, Nome: ${_listaAlunos[i].nome},");
     }
   }
+  void remover(Aluno a1){
+    _listaAlunos.remove(a1);
+  }
 }
