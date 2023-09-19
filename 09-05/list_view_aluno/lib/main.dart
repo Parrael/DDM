@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:modularizacao/alterar_aluno.dart';
 import 'package:modularizacao/cadastro.dart';
 import 'package:modularizacao/exibe_aluno.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       //home: MyHome(),
       routes: {
         '/' : (context) =>MyCadasto(),
-        '/exibeAluno' : (context) =>MyListaExibe()
+        '/exibeAluno' : (context) =>MyListaExibe(),
       },
 
       );

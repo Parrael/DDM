@@ -1,17 +1,18 @@
 import 'aluno.dart';
 
 class AlunoRepository{
-  static List<Aluno> _listaAlunos = [];
+  static List<Aluno> _listaAlunos = [
+    Aluno("Parra", 201286),
+    Aluno("Menezes", 203255),
+    Aluno("Catarina", 201171),
+    Aluno("Chaba", 201605),
+    Aluno("Basso Tânia", 975310),
+  ];
 
   static get getlistaAlunos => _listaAlunos;
 
   set listaAlunos(value) => _listaAlunos = value;
   
-
-  //construtor
-   AlunoRepository(){
-    _listaAlunos = [];
-  }
 
   void adicionar(Aluno al){
     _listaAlunos.add(al);
@@ -25,4 +26,5 @@ class AlunoRepository{
   void remover(Aluno a1){
     _listaAlunos.remove(a1);
   }
+  
 }

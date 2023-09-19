@@ -23,6 +23,7 @@ class _MyCadastoState extends State<MyCadasto> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: const Color.fromARGB(255, 121, 16, 139),
           titleTextStyle: TextStyle(color: Colors.white),
           title: Text("Cadastra Aluno"),
