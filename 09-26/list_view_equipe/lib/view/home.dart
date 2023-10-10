@@ -9,25 +9,28 @@ class MyHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-          child: Column(
-        children: [
-          Row(
-            children: [
-              SizedBox(
-                width: 15,
-                child: Text("Equipes:"),
-              ),
-              DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 0, 112, 17),
-                      image: DecorationImage(
-                          image: NetworkImage(
-                              'https://cdn-icons-png.flaticon.com/512/2914/2914275.png')))),
+  child: Row(
+    children: [
+      Expanded(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/cadastra_equipe');
+          },
+          child: Text("Equipes"),
+        ),
+      ),
+      Expanded(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/cadastra_integrante');
+          },
+          child: Text("Integrantes"),
+        ),
+      ),
+    ],
+  ),
+),
 
-            ],
-          )
-        ],
-      )),
     );
   }
 }

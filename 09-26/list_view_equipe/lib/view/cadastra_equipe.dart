@@ -32,7 +32,7 @@ class _MyCadastraEquipeState extends State<MyCadastraEquipe> {
             actions: [
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/cadastraEquipe');
+                  Navigator.pushNamed(context, '/exibe_equipe');
                 },
                 icon: Icon(
                   Icons.tab,

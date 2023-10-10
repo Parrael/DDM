@@ -35,7 +35,7 @@ class _MyCadastraIntegranteState extends State<MyCadastraIntegrante> {
             actions: [
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/cadastraIntegrante');
+                  Navigator.pushNamed(context, '/exibeIntegrante');
                 },
                 icon: Icon(
                   Icons.tab,
