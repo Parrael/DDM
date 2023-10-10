@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:list_view_equipe/model/integrante.dart';
+import 'package:list_view_equipe/repository/integrante_repositore.dart';
 
 class MyCadastraIntegrante extends StatefulWidget {
   const MyCadastraIntegrante({super.key});
@@ -12,11 +14,15 @@ class _MyCadastraIntegranteState extends State<MyCadastraIntegrante> {
   String rg="";
   int numero=0;
   String funcao="";
+  int codEquipe=0;
 
   TextEditingController campoNome = TextEditingController();
   TextEditingController campoRg = TextEditingController();
   TextEditingController campoNumero = TextEditingController();
   TextEditingController campoFuncao = TextEditingController();
+  TextEditingController campoCodEquipe = TextEditingController();
+
+  IntegranteRepository listaInt = IntegranteRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +64,10 @@ class _MyCadastraIntegranteState extends State<MyCadastraIntegrante> {
                     controller: campoFuncao,
                     decoration: InputDecoration(labelText: "Função:"),
                   ),
+                  TextField(
+                    controller: campoCodEquipe,
+                    decoration: InputDecoration(labelText: "Código da Equipe:"),
+                  ),
 
                   SizedBox(
                     height: 10,
@@ -68,13 +78,18 @@ class _MyCadastraIntegranteState extends State<MyCadastraIntegrante> {
                       nome = campoNome.text;
                       numero = int.parse(campoNumero.text);
                       funcao = campoFuncao.text;
-                      Aluno al = Aluno(nome, ra);
-                      listaAl.adicionar(al);
-                      listaAl.imprimir();
+                      codEquipe = int.parse(campoCodEquipe.text);
+                      
+                      Integrante i = Integrante(nome, rg, numero, funcao, codEquipe); 
+                      listaInt.adicionar(i);
+                      listaInt.imprimir();
                       campoNome.clear();
-                      campoRa.clear();
+                      campoRg.clear();
+                      campoNumero.clear();
+                      campoFuncao.clear();
+                      campoCodEquipe.clear();
                     },
-                    child: Text("Cadastrar"),
+                    child: Text("Cadastrar Integrante"),
                   )
                 ],
               )),

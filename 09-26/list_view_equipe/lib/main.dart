@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:list_view_equipe/view/cadastra_equipe.dart';
+import 'package:list_view_equipe/view/cadastra_integrante.dart';
+import 'package:list_view_equipe/view/exibe_equipe.dart';
+import 'package:list_view_equipe/view/exibe_integrante.dart';
 import 'package:list_view_equipe/view/home.dart';
 
 
@@ -25,8 +29,14 @@ class MyApp extends StatelessWidget {
       ),
       
       
-      
-      home: MyHome(),
+      routes: {
+        '/' : (context) =>MyHome(),
+        '/exibeEquipe' : (context) =>MyExibEquipe(),
+        '/exibeIntegrante' : (context) =>MyExibIntegrante(),
+        '/cadastraEquipe' : (context) =>MyCadastraEquipe(),
+        '/cadastraIntegrante' : (context) =>MyCadastraIntegrante(),
+      },
+      //home: MyHome(),
       );
       }
   }
