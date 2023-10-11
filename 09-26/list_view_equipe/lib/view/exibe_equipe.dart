@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:list_view_equipe/repository/equipe_repository.dart';
 import 'package:list_view_equipe/view/altera_equipe.dart';
@@ -12,7 +14,7 @@ class MyExibEquipe extends StatefulWidget {
 class _MyExibEquipeState extends State<MyExibEquipe> {
   List listaEquipes = EquipeRepository.getlistaEquipes;
   List listaBusca = [];
-  String nomeBusca="";
+  String nomeBusca = "";
 
   @override
   void initState() {
@@ -29,10 +31,11 @@ class _MyExibEquipeState extends State<MyExibEquipe> {
           .toList();
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
             automaticallyImplyLeading: false,
             backgroundColor: Color.fromARGB(255, 90, 11, 218),
             titleTextStyle: TextStyle(color: Colors.white),
@@ -40,13 +43,21 @@ class _MyExibEquipeState extends State<MyExibEquipe> {
             actions: [
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/');
+                  Navigator.pushNamed(context, '/cadastraEquipe');
                 },
                 icon: Icon(
                   Icons.tab,
                   color: Colors.white,
                 ),
-              )
+              ),
+              IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/');
+                  },
+                  icon: Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ))
             ]),
         body: SingleChildScrollView(
           child: Column(children: [
@@ -55,7 +66,7 @@ class _MyExibEquipeState extends State<MyExibEquipe> {
             ),
             SizedBox(
               width: 350,
-              height: 30,
+              height: 50,
               child: TextField(
                   style: TextStyle(fontSize: 15),
                   decoration: InputDecoration(
@@ -85,12 +96,13 @@ class _MyExibEquipeState extends State<MyExibEquipe> {
                         Expanded(
                           child: IconButton(
                               onPressed: () {
-                                setState(() {
-                                  EquipeRepository().remover(listaEquipes[index]);
-                                  atualizaLista(nomeBusca);
-                                });
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return MyAlteraEquipe(
+                                      listaBusca[index], index);
+                                }));
                               },
-                              icon: Icon(Icons.delete)),
+                              icon: Icon(Icons.edit)),
                         ),
                         SizedBox(
                           width: 10,
@@ -98,13 +110,13 @@ class _MyExibEquipeState extends State<MyExibEquipe> {
                         Expanded(
                           child: IconButton(
                               onPressed: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return MyAlteraEquipe(listaEquipes[index], index);
-                                }));
+                                setState(() {
+                                  EquipeRepository().remover(listaBusca[index]);
+                                  atualizaLista(nomeBusca);
+                                });
                               },
-                              icon: Icon(Icons.edit)),
-                        )
+                              icon: Icon(Icons.delete)),
+                        ),
                       ]),
                     ),
                     leading: CircleAvatar(
@@ -122,15 +134,7 @@ class _MyExibEquipeState extends State<MyExibEquipe> {
                 padding: EdgeInsets.all(7),
               ),
             ),
-            SizedBox(
-              child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/');
-                  },
-                  child: Text("Voltar")),
-            )
           ]),
-        )
-    );
+        ));
   }
 }
